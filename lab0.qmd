@@ -81,6 +81,25 @@ dino_data %>%
   summarize(r = cor(x, y))
 ```
 
+The correlation coefficient of the star is less negative and smaller in magnitude than the correlation coefficient of the dino data set.
+
 ## Exercise 5
 
-(Add a labeled code chunk and narrative here. Insert code chunks using the "insert chunk" button (a green C with a +). Alternatively, use CMD + OPTION + I (Mac) or CTRL + ALT + I (Windows).)
+Finally, let\'s plot all datasets at once.
+
+```{r}
+ggplot(datasaurus_dozen, aes(x = x, y = y, color = dataset))+
+  geom_point()+
+  facet_wrap(~ dataset, ncol = 3) +
+  theme(legend.position = "none")
+```
+
+Let's use the `group_by` function to generate all the summary correlation coefficients.
+
+```{r}
+datasaurus_dozen |>
+  group_by(dataset) |>
+  summarize(r = cor(x, y)) 
+```
+
+The plots vary widely in shape and variety - with some plots having clustered points in the middle and others with sporadic points on the sides. The correlation coefficients are all similar in values (between -6 and -7).
