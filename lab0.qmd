@@ -21,8 +21,6 @@ The data set has 1846 rows and 3 columns. The three variables are x-values, y-va
 
 ## Exercise 2
 
-(The answer for this exercise is given below, but you should clean up the narrative so it only includes what you want to turn in.)
-
 First, let's plot the data in the dino dataset (we will cover **ggplot2** in much more depth next week):
 
 ```{r}
