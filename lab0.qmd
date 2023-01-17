@@ -41,27 +41,45 @@ dino_data %>%
 
 ## Exercise 3
 
-(Add code and narrative here as needed. Note the code chunks below are labeled with `plot-circle` and `cor-circle` to provide spaces to place the code for plotting and calculating the correlation coefficient.)
-
-(When you have finished, delete these instructions.)
+Let's plot the data in the circle dataset
 
 ```{r}
 #| label: plot-circle
-# Your code should go here! This is a comment, which should be deleted.
+dino_data <- datasaurus_dozen %>%
+  filter(dataset == "circle")
+ggplot(data = dino_data, mapping = aes(x = x, y = y)) + 
+  geom_point()
 ```
 
-Some more narrative can go here.
+Next, let's calculate the correlation between `x` and `y` in this dataset.
 
 ```{r}
 #| label: cor-circle
-# Calculate the correlation here
+dino_data %>%
+  summarize(r = cor(x, y))
 ```
 
-Conclude with some more narrative, if needed.
+The correlation coefficient of the circle is more negative and larger in magnitude than the correlation coefficient of the dino data set.
 
 ## Exercise 4
 
-(Add a labeled code chunk and narrative here. Insert code chunks using the "insert chunk" button (a green C with a +). Alternatively, use CMD + OPTION + I (Mac) or CTRL + ALT + I (Windows).)
+Let's plot the data in the star dataset
+
+```{r}
+#| label: plot-star
+dino_data <- datasaurus_dozen %>%
+  filter(dataset == "star")
+ggplot(data = dino_data, mapping = aes(x = x, y = y)) + 
+  geom_point()
+```
+
+Next, let's calculate the correlation between `x` and `y` in the star dataset.
+
+```{r}
+#| label: cor-star
+dino_data %>%
+  summarize(r = cor(x, y))
+```
 
 ## Exercise 5
 
